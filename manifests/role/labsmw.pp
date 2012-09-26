@@ -10,7 +10,7 @@ class apachesetup {
 		ensure => present
 	}
 
-	apache_module { rewrite: name => "rewrite" }
+	apache_module { rewrite: module => "rewrite" }
 }
 
 # A one-step class for setting up a single-node MediaWiki install,

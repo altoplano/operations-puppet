@@ -179,8 +179,8 @@ class misc::fundraising {
 	}
 
 	#enable apache mods
-	apache_module { rewrite: name => "rewrite" }
-	apache_module { ssl: name => "ssl" }
+	apache_module { rewrite: module => "rewrite" }
+	apache_module { ssl: module => "ssl" }
 
 	#enable apache sites
 	apache_site { donate: name => "000-donate" }

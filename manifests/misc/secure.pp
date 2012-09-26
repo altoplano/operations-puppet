@@ -3,9 +3,9 @@
 class misc::secure {
 	system_role { "misc::secure": description => "secure.wikimedia.org" }
 
-	apache_module { rewrite: name => "rewrite" }
-	apache_module { proxy: name => "proxy" }
-	apache_module { proxy_http: name => "proxy_http" }
+	apache_module { rewrite: module => "rewrite" }
+	apache_module { proxy: module => "proxy" }
+	apache_module { proxy_http: module => "proxy_http" }
 
 	apache_site { secure: name => "secure.wikimedia.org" }
 }

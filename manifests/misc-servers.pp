@@ -42,14 +42,14 @@ class misc::noc-wikimedia {
 			ensure => present;
 	}
 
-	apache_module { php5: name => "php5" }
-	apache_module { userdir: name => "userdir" }
-	apache_module { cgi: name => "cgi" }
-	apache_module { ldap: name => "ldap" }
-	apache_module { authnz_ldap: name => "authnz_ldap" }
-	apache_module { proxy: name => "proxy" }
-	apache_module { proxy_http: name => "proxy_http" }
-	apache_module { ssl: name => "ssl" }
+	apache_module { php5: module => "php5" }
+	apache_module { userdir: module => "userdir" }
+	apache_module { cgi: module => "cgi" }
+	apache_module { ldap: module => "ldap" }
+	apache_module { authnz_ldap: module => "authnz_ldap" }
+	apache_module { proxy: module => "proxy" }
+	apache_module { proxy_http: module => "proxy_http" }
+	apache_module { ssl: module => "ssl" }
 
 	apache_site { noc: name => "noc.wikimedia.org" }
 	apache_site { graphiteproxy: name => "graphite.wikimedia.org" }
@@ -517,7 +517,7 @@ class misc::etherpad {
 			group => root;
 	}
 
-	apache_module { proxy: name => "proxy" }
+	apache_module { proxy: module => "proxy" }
 	apache_site { etherpad_proxy: name => "etherpad.proxy" }
 
 	# Nagios monitoring
@@ -554,10 +554,10 @@ class misc::etherpad_lite {
 	}
 
 	apache_site { controller: name => "etherpad.wikimedia.org" }
-	apache_module { rewrite: name => "rewrite" }
-	apache_module { proxy: name => "proxy" }
-	apache_module { proxy_http: name => "proxy_http" }
-	apache_module { ssl: name => "ssl" }
+	apache_module { rewrite: module => "rewrite" }
+	apache_module { proxy: module => "proxy" }
+	apache_module { proxy_http: module => "proxy_http" }
+	apache_module { ssl: module => "ssl" }
 
 	package { etherpad-lite:
 		ensure => latest;
@@ -699,7 +699,7 @@ class misc::survey {
 
 	apache_site { survey: name => "survey.wikimedia.org" }
 
-	apache_module { ssl: name => "ssl" }
+	apache_module { ssl: module => "ssl" }
 }
 
 class misc::download-mediawiki {
@@ -830,7 +830,7 @@ net.core.rmem_default = 536870912
 ";
 	}
 
-	apache_module { python: name => "python" }
+	apache_module { python: module => "python" }
 	apache_site { graphite: name => "graphite" }
 
 	include network::constants
@@ -921,7 +921,7 @@ class misc::racktables {
 
 	apache_site { racktables: name => "racktables.wikimedia.org" }
 	apache_confd { namevirtualhost: install => "true", name => "namevirtualhost" }
-	apache_module { rewrite: name => "rewrite" }
+	apache_module { rewrite: module => "rewrite" }
 }
 
 

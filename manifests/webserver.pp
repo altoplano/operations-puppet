@@ -42,7 +42,7 @@ class webserver::php5( $ssl = 'false' ) {
 	}
 
 	if $ssl == 'true' {
-		apache_module { ssl: name => "ssl" }
+		apache_module { ssl: module => "ssl" }
 	}
 
 	service { apache2:
@@ -97,7 +97,7 @@ class webserver::apache2::rpaf {
 		ensure => latest;
 	}
 	apache_module { rpaf:
-		name => "rpaf",
+		module => "rpaf",
 		require => Package["libapache2-mod-rpaf"];
 	}
 }

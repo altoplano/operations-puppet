@@ -33,7 +33,7 @@ class misc::wikistats::web ( $wikistats_host, $wikistats_ssl_cert, $wikistats_ss
 			group	=> www-data;
 	}
 
-	apache_module { rewrite: name => 'rewrite' }
+	apache_module { rewrite: module => 'rewrite' }
 
 	apache_confd { namevirtualhost: install => 'true', name => 'namevirtualhost' }
 	apache_site { no_default: name => '000-default', ensure => absent }

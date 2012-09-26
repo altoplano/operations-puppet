@@ -185,7 +185,7 @@ class puppetmaster($server_name="puppet", $bind_address="*", $verify_client="opt
 		}
 
 		apache_module { "passenger":
-			name => "passenger",
+			module => "passenger",
 			require => Package["libapache2-mod-passenger"];
 		}
 		apache_site { "puppetmaster":
