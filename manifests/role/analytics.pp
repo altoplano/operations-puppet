@@ -1,5 +1,6 @@
 # analytics servers (RT-1985)
 
+
 @monitor_group { "analytics-eqiad": description => "analytics servers in eqiad" }
 
 class role::analytics {
